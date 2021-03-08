@@ -16,10 +16,6 @@ public class Discount {
         return discount;
     }
 
-    public String getDiscountCause() {
-        return discountCause;
-    }
-
     @Override
     public int hashCode() {
         final int prime = 31;
