@@ -101,37 +101,13 @@ public class OfferItem {
 
     /**
      *
-     * @param item
+     * @param other
      * @param delta
      *            acceptable percentage difference
      * @return
      */
     public boolean sameAs(OfferItem other, double delta) {
-        if (product.getName() == null) {
-            if (other.product.getName() != null) {
-                return false;
-            }
-        } else if (!product.getName()
-                           .equals(other.product.getName())) {
-            return false;
-        }
-        if (product.getCost().getAmount() == null) {
-            if (other.product.getCost().getAmount() != null) {
-                return false;
-            }
-        } else if (!product.getCost().getAmount()
-                           .equals(other.product.getCost().getAmount())) {
-            return false;
-        }
-        if (product.getId() == null) {
-            if (other.product.getId() != null) {
-                return false;
-            }
-        } else if (!product.getId()
-                           .equals(other.product.getId())) {
-            return false;
-        }
-        if (product.getType() != other.product.getType()) {
+        if(!product.sameAs(other.product)) {
             return false;
         }
 
