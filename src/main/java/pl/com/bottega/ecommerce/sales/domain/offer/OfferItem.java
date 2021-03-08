@@ -59,14 +59,6 @@ public class OfferItem {
         return currency;
     }
 
-    public BigDecimal getDiscount() {
-        return discount.getDiscount();
-    }
-
-    public String getDiscountCause() {
-        return discount.getDiscountCause();
-    }
-
     public int getQuantity() {
         return quantity;
     }
@@ -75,10 +67,7 @@ public class OfferItem {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result
-                 + (discount.getDiscount() == null ? 0
-                         : discount.getDiscount()
-                                   .hashCode());
+        result = prime * result + discount.hashCode();
         result = prime * result + quantity;
         result = prime * result + (totalCost == null ? 0 : totalCost.hashCode());
         result = prime * result + product.hashCode();
@@ -97,14 +86,9 @@ public class OfferItem {
             return false;
         }
         OfferItem other = (OfferItem) obj;
-        if (discount.getDiscount() == null) {
-            if (other.discount.getDiscount() != null) {
-                return false;
-            }
-        } else if (!discount.getDiscount()
-                            .equals(other.discount.getDiscount())) {
+
+        if (!discount.equals(other.discount))
             return false;
-        }
 
         if (!product.equals(other.product)) {
             return false;
