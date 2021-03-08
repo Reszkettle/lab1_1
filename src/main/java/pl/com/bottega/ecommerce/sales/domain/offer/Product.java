@@ -7,9 +7,7 @@ public class Product {
 
     private String id;
 
-    private BigDecimal price;
-
-    private String currency;
+    private Money cost;
 
     private String name;
 
@@ -19,7 +17,7 @@ public class Product {
 
     public Product(String id, BigDecimal price, String name, String type, Date snapshotDate) {
         this.id = id;
-        this.price = price;
+        this.cost = new Money(cost.getAmount(), "EUR");
         this.name = name;
         this.type = type;
         this.snapshotDate = snapshotDate;
@@ -29,8 +27,8 @@ public class Product {
         return id;
     }
 
-    public BigDecimal getPrice() {
-        return price;
+    public Money getCost() {
+        return cost;
     }
 
     public String getName() {
@@ -55,11 +53,11 @@ public class Product {
         } else if (!name.equals(other.getName())) {
             return false;
         }
-        if (price == null) {
-            if (other.getPrice() != null) {
+        if (cost.getAmount() == null) {
+            if (other.cost.getAmount() != null) {
                 return false;
             }
-        } else if (price.equals(other.getPrice())) {
+        } else if (cost.getAmount().equals(other.cost.getAmount())) {
             return false;
         }
         if (id == null) {
@@ -81,7 +79,7 @@ public class Product {
         final int prime = 31;
         int result = 1;
         result = prime * result + (name == null ? 0 : name.hashCode());
-        result = prime * result + (price == null ? 0 : price.hashCode());
+        result = prime * result + cost.hashCode();
         result = prime * result + (id == null ? 0 : id.hashCode());
         result = prime * result + (type == null ? 0 : type.hashCode());
         return result;
