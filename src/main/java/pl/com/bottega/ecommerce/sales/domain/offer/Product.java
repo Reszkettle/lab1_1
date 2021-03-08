@@ -9,6 +9,8 @@ public class Product {
 
     private BigDecimal price;
 
+    private String currency;
+
     private String name;
 
     private String type;
